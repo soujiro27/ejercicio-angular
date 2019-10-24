@@ -1,0 +1,30 @@
+<div class="data__container">
+  <div class="loader__container"  *ngIf="!loader">
+    <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  </div>
+  <table *ngIf="loader">
+    <tr>
+      <th>Foto</th>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apeliido Materno</th>
+      <th>Correo</th>
+      <th>Rol</th>
+      <th>Status</th>
+    </tr>
+    <ng-container *ngFor="let user of users" >
+      <tr class="table__data">
+        <td class="table__data-picture"><img src={{user.picture}} alt="avatar" /> </td>
+        <td>{{user.name}}</td>
+        <td>{{user.fathersLastName}}</td>
+        <td>{{user.mothersLastName}}</td>
+        <td>{{user.email}}</td>
+        <td>{{user.roleId}}</td>
+        <td *ngIf="user.active"><img src="../../assets/toggle_on.svg" alt=""></td>
+        <td *ngIf="!user.active"><img src="../../assets/toggle_off.svg" alt=""></td>
+      </tr>
+    </ng-container>
+  </table>
+
+
+</div>
